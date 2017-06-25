@@ -1,14 +1,11 @@
 version: "2"
 services:
   cjdns:
-    build:
-      context: ./image
-      dockerfile: Dockerfile.diy
-      args:
-        TAG: ${CJDNS_TAG}
+    image: chpio/cjdns:sodium
     cap_add:
       - NET_ADMIN
     volumes:
       - ./data-cjdns:/data/cjdns
     devices:
       - /dev/net/tun
+
